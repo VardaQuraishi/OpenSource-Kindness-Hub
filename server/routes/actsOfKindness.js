@@ -1,5 +1,6 @@
+// Import required modules
 const express = require('express');
-const logger = require('../../logger')
+const logger = require('../../logger');
 const router = express.Router();
 const ActOfKindness = require('../../models/actOfKindness');
 

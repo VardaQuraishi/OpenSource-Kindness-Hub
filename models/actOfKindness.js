@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Define the schema for the Act of Kindness model
 const actOfKindnessSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -31,4 +32,5 @@ const actOfKindnessSchema = new mongoose.Schema({
   }
 });
 
+// Create and export the ActOfKindness model based on the schema
 module.exports = mongoose.model('ActOfKindness', actOfKindnessSchema);
