@@ -35,6 +35,19 @@ router.post('/acts-of-kindness', (req, res) => {
         });
 });
 
+// Route handler for retrieving all acts of kindness
+router.get('/acts-of-kindness', (req, res) => {
+    ActOfKindness.find()
+        .then((actsOfKindness) => {
+            res.status(200).json(actsOfKindness);
+        })
+        .catch((error) => {
+            logger.error('Error retrieving acts of kindness:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        });
+});
+
+
 // Mount the middleware function to log requests
 router.use(logRequests);
 
