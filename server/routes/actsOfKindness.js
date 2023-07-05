@@ -47,6 +47,23 @@ router.get('/acts-of-kindness', (req, res) => {
         });
 });
 
+// Route handler for retrieving a specific act of kindness
+router.get('/acts-of-kindness/:id', (req, res) => {
+    const { id } = req.params;
+
+    ActOfKindness.findById(id)
+        .then((actOfKindness) => {
+            if (!actOfKindness) {
+                return res.status(404).json({ error: 'Act of kindness not found' });
+            }
+            res.status(200).json(actOfKindness);
+        })
+        .catch((error) => {
+            logger.error('Error retrieving act of kindness:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        });
+});
+
 
 // Mount the middleware function to log requests
 router.use(logRequests);
