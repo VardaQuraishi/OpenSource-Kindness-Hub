@@ -80,7 +80,10 @@ router.put('/acts-of-kindness/:id', (req, res) => {
         image,
         tags
     })
-        .then(() => {
+        .then((updatedActOfKindness) => {
+            if (!updatedActOfKindness) {
+                return res.status(404).json({ error: 'Act of kindness not found' });
+            }
             res.status(200).json({ message: 'Act of kindness updated successfully' });
         })
         .catch((error) => {
@@ -88,6 +91,7 @@ router.put('/acts-of-kindness/:id', (req, res) => {
             res.status(500).json({ error: 'Internal server error' });
         });
 });
+
 
 // Mount the middleware function to log requests
 router.use(logRequests);

@@ -51,3 +51,26 @@ describe('GET /api/acts-of-kindness/:id', () => {
       expect(response.body).toEqual({ error: 'Act of kindness not found' });
     });
   });
+
+describe('POST /api/acts-of-kindness', () => {
+  test('should create an act of kindness', async () => {
+    const newActOfKindness = {
+      title: 'Helping Poor',
+      category: 'Volunteering',
+      description: 'Offering assistance to those in need',
+      image: 'https://unsplash.com/photos/dvhWhY337yQ',
+      tags: ['kindness', 'volunteer', 'help']
+    };
+
+    const response = await request(app)
+      .post('/api/acts-of-kindness')
+      .send(newActOfKindness);
+
+    expect(response.status).toBe(201);
+    expect(response.body.message).toBe('Act of kindness created successfully');
+    // Add more assertions if needed
+  });
+});
+  
+  
+  
