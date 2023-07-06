@@ -36,6 +36,8 @@ app.use('/api', actsOfKindnessRouter);
 
 // Start the server and listen on port 3000
 const port = 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
     logger.info(`Server is running on port ${port}`);
 });
+
+module.exports = { app, server }; // Export both 'app' and 'server' objects

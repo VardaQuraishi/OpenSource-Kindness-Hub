@@ -4,7 +4,8 @@
   "description": "Open Source Random Acts of Kindness Generator for Beginners",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest"  
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "jest": "^29.6.0",
+    "supertest": "^6.3.3",
     "typescript": "^5.1.3"
   }
 }

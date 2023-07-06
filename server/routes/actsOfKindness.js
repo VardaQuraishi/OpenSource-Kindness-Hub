@@ -59,11 +59,35 @@ router.get('/acts-of-kindness/:id', (req, res) => {
             res.status(200).json(actOfKindness);
         })
         .catch((error) => {
+            if (error.name === 'CastError') {
+                return res.status(404).json({ error: 'Act of kindness not found' });
+            }
             logger.error('Error retrieving act of kindness:', error);
             res.status(500).json({ error: 'Internal server error' });
         });
 });
 
+
+// Route handler for updating an act of kindness
+router.put('/acts-of-kindness/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, category, description, image, tags } = req.body;
+
+    ActOfKindness.findByIdAndUpdate(id, {
+        title,
+        category,
+        description,
+        image,
+        tags
+    })
+        .then(() => {
+            res.status(200).json({ message: 'Act of kindness updated successfully' });
+        })
+        .catch((error) => {
+            logger.error('Error updating act of kindness:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        });
+});
 
 // Mount the middleware function to log requests
 router.use(logRequests);
