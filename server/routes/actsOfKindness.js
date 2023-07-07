@@ -69,30 +69,29 @@ router.get('/acts-of-kindness/:id', (req, res) => {
 
 
 // Route handler for updating an act of kindness
-router.put('/acts-of-kindness/:id', (req, res) => {
-    const { id } = req.params;
-    const { title, category, description, image, tags } = req.body;
-
-    ActOfKindness.findByIdAndUpdate(id, {
-        title,
-        category,
-        description,
-        image,
-        tags
-    })
-        .then((updatedActOfKindness) => {
-            if (!updatedActOfKindness) {
-                return res.status(404).json({ error: 'Act of kindness not found' });
-            }
-            res.status(200).json({ message: 'Act of kindness updated successfully' });
-        })
-        .catch((error) => {
-            logger.error('Error updating act of kindness:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        });
-});
-
-
+router.put('/acts-of-kindness/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { title, category, description, image, tags } = req.body;
+  
+      const updatedActOfKindness = await ActOfKindness.findByIdAndUpdate(
+        id,
+        { title, category, description, image, tags },
+        { new: true }
+      );
+  
+      if (!updatedActOfKindness) {
+        return res.status(404).json({ error: 'Act of kindness not found' });
+      }
+  
+      res.status(200).json({ message: 'Act of kindness updated successfully' });
+    } catch (error) {
+      logger.error('Error updating act of kindness:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+   
+  
 // Mount the middleware function to log requests
 router.use(logRequests);
 
