@@ -111,15 +111,15 @@ describe('PUT /api/acts-of-kindness/:id', () => {
       image: 'https://updated-image.com',
       tags: ['updated', 'tags']
     };
-  
+
     const response = await request(app)
       .put(`/api/acts-of-kindness/${nonexistentId}`)
       .send(updatedData);
-  
+
     expect(response.status).toBe(404);
     expect(response.body).toEqual({ error: 'Act of kindness not found' });
   });
-  
+
   describe('DELETE /api/acts-of-kindness/:id', () => {
     test('should delete an act of kindness if the ID exists', async () => {
       // Create a new act of kindness
@@ -130,24 +130,24 @@ describe('PUT /api/acts-of-kindness/:id', () => {
         image: 'https://unsplash.com/photos/dvhWhY337yQ',
         tags: ['kindness', 'volunteer', 'help']
       });
-  
+
       // Make the DELETE request with the newActOfKindness ID
       const response = await request(app).delete(`/api/acts-of-kindness/${newActOfKindness._id}`);
-  
+
       expect(response.status).toBe(200);
       expect(response.body.message).toBe('Act of kindness deleted successfully');
       // Add more assertions if needed
     });
-  
+
     test('should return a 404 error if the act of kindness ID does not exist', async () => {
       const nonexistentId = new mongoose.Types.ObjectId();
-  
+
       const response = await request(app).delete(`/api/acts-of-kindness/${nonexistentId}`);
-  
+
       expect(response.status).toBe(404);
       expect(response.body).toEqual({ error: 'Act of kindness not found' });
     });
   });
-  
+
 });
 
