@@ -36,7 +36,6 @@ router.post('/acts-of-kindness', (req, res) => {
         });
 });
 
-
 // Route handler for retrieving all acts of kindness
 router.get('/acts-of-kindness', (req, res) => {
     ActOfKindness.find()
