@@ -4,13 +4,13 @@ Open Source Random Acts of Kindness Generator for Beginners
 ## File Structuring
 
 ### models
--The code defines a schema for the Act of Kindness model using mongoose.Schema.
--The schema specifies the structure and data types of the Act of Kindness document.
--Each field in the schema is defined with a type and optional validation rules.
--The required: true option indicates that the field is mandatory.
--The default option is used to provide a default value for the createdAt and updatedAt fields.
--The mongoose.model function creates a model named "ActOfKindness" based on the defined schema.
--The model is exported to be used in other parts of the application.
+-The code defines a schema for the Act of Kindness model using mongoose.Schema.<br />
+-The schema specifies the structure and data types of the Act of Kindness document.<br />
+-Each field in the schema is defined with a type and optional validation rules.<br />
+-The required: true option indicates that the field is mandatory.<br />
+-The default option is used to provide a default value for the createdAt and updatedAt fields.<br />
+-The mongoose.model function creates a model named "ActOfKindness" based on the defined schema.<br />
+-The model is exported to be used in other parts of the application.<br />
 
 `title` field of type `String` that is `required`.
 `category` field of type `String` that is `required`.
@@ -43,3 +43,13 @@ GET /acts-of-kindness - Retrieves all acts of kindness from the database and sen
 GET /acts-of-kindness/:id - Retrieves a specific act of kindness based on the provided ID. If the act of kindness is found, it is sent back as a response. If not found, an appropriate error response is sent.<br />
 PUT /acts-of-kindness/:id - Updates an existing act of kindness based on the provided ID. It extracts the updated data from the request body and uses the findByIdAndUpdate method to update the act of kindness. If the act of kindness is updated successfully, a success message is sent back. If not found, an appropriate error response is sent.<br />
 DELETE /acts-of-kindness/:id - Deletes an existing act of kindness based on the provided ID. It uses the findByIdAndRemove method to remove the act of kindness from the database. If the act of kindness is deleted successfully, a success message is sent back. If not found, an appropriate error response is sent.<br />
+/index.js
+-The code sets up an Express application and imports the required modules.<br />
+-A middleware function is added to log incoming requests using the logger module.<br />
+-The mongoose.connect function is used to establish a connection to the MongoDB database.<br />
+-The connection URL mongodb://localhost:27017/KindActions specifies the local MongoDB server and the database name.<br />
+-The connection options { useNewUrlParser: true, useUnifiedTopology: true } ensure compatibility with the MongoDB driver.<br />
+-The .then() block logs a successful database connection, while the .catch() block logs any connection errors.<br />
+-The body-parser middleware is used to parse JSON data from the request body.<br />
+-The actsOfKindnessRouter is mounted as middleware under the /api route.<br />
+-Finally, the server is started on port 3000, and a log message is displayed confirming the server's running status.<br />
