@@ -42,4 +42,17 @@ Define route handlers for different API endpoints:<br />
 `GET` /acts-of-kindness - Retrieves all acts of kindness from the database and sends them back as a response.
 `GET` /acts-of-kindness/:id - Retrieves a specific act of kindness based on the provided ID. If the act of kindness is found, it is sent back as a response. If not found, an appropriate error response is sent.<br /><br />
 `PUT` /acts-of-kindness/:id - Updates an existing act of kindness based on the provided ID. It extracts the updated data from the request body and uses the findByIdAndUpdate method to update the act of kindness. If the act of kindness is updated successfully, a success message is sent back. If not found, an appropriate error response is sent.<br /><br />
-`DELETE` /acts-of-kindness/:id - Deletes an existing act of kindness based on the provided ID. It uses the findByIdAndRemove method to remove the act of kindness from the database. If the act of kindness is deleted successfully, a success message is sent back. If not found, an appropriate error response is sent.<br /><br />
+`DELETE` /acts-of-kindness/:id - Deletes an existing act of kindness based on the provided ID. It uses the findByIdAndRemove method to remove the act of kindness from the database. If the act of kindness is deleted successfully, a success message is sent back. If not found, an appropriate error response is sent.<br /><br /><br />
+
+/actsOfKindeness.test.js<br />
+In this file, we have written test cases using the supertest library to test the API endpoints. Here's a breakdown of the test cases:<br />
+<br /><br />
+After all tests are done, we close the MongoDB connection and the Express server.<br />
+Before each test, we clean up the test data by removing act of kindness documents with testData flag set to true.<br />
+We have separate describe blocks for each API endpoint to group related test cases together.<br />
+In each test block, we make HTTP requests to the corresponding API endpoint using supertest and assert the expected responses.<br />
+For the `GET` endpoint, we test retrieving all acts of kindness and retrieving a specific act of kindness by ID.<br />
+For the `POST` endpoint, we test creating a new act of kindness.<br />
+For the `PUT` endpoint, we test updating an existing act of kindness by ID.<br />
+For the `DELETE` endpoint, we test deleting an act of kindness by ID.<br />
+These test cases ensure that the API endpoints function correctly and return the expected responses.<br />
