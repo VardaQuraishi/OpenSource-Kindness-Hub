@@ -4,7 +4,7 @@ Open Source Random Acts of Kindness Generator for Beginners
 ## File Structuring
 
 ### models
--The code defines a schema for the Act of Kindness model using mongoose.Schema.
+-The code defines a schema for the Act of Kindness model using mongoose.Schema.<br />
 -The schema specifies the structure and data types of the Act of Kindness document.
 -Each field in the schema is defined with a type and optional validation rules.
 -The required: true option indicates that the field is mandatory.
