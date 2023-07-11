@@ -23,12 +23,12 @@ Open Source Random Acts of Kindness Generator for Beginners
 
 ### server
 /index.js
--The code sets up an Express application and imports the required modules.
--A middleware function is added to log incoming requests using the logger module.
--The mongoose.connect function is used to establish a connection to the MongoDB database.
--The connection URL mongodb://localhost:27017/KindActions specifies the local MongoDB server and the database name.
--The connection options { useNewUrlParser: true, useUnifiedTopology: true } ensure compatibility with the MongoDB driver.
--The .then() block logs a successful database connection, while the .catch() block logs any connection errors.
--The body-parser middleware is used to parse JSON data from the request body.
--The actsOfKindnessRouter is mounted as middleware under the /api route.
--Finally, the server is started on port 3000, and a log message is displayed confirming the server's running status.
+-The code sets up an Express application and imports the required modules.<br />
+-A middleware function is added to log incoming requests using the logger module.<br />
+-The mongoose.connect function is used to establish a connection to the MongoDB database.<br />
+-The connection URL mongodb://localhost:27017/KindActions specifies the local MongoDB server and the database name.<br />
+-The connection options { useNewUrlParser: true, useUnifiedTopology: true } ensure compatibility with the MongoDB driver.<br />
+-The .then() block logs a successful database connection, while the .catch() block logs any connection errors.<br />
+-The body-parser middleware is used to parse JSON data from the request body.<br />
+-The actsOfKindnessRouter is mounted as middleware under the /api route.<br />
+-Finally, the server is started on port 3000, and a log message is displayed confirming the server's running status.<br />
