@@ -12,6 +12,15 @@ Open Source Random Acts of Kindness Generator for Beginners
 -The mongoose.model function creates a model named "ActOfKindness" based on the defined schema.
 -The model is exported to be used in other parts of the application.
 
+`title` field of type `String` that is `required`.
+`category` field of type `String` that is `required`.
+`description` field of type `String` that is `required`.
+`image` field of type `String` that is `required`.
+`tags` field of type `Array` containing `String` elements that is required.
+`createdAt` field of type `Date` with a `default` value of the current date and time.
+`updatedAt` field of type `Date` with a `default` value of the current date and time.
+`testData` field of type `Boolean` with a `default` value of `false`.
+
 ### server
 /index.js
 -The code sets up an Express application and imports the required modules.
