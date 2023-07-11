@@ -13,7 +13,7 @@ const logRequests = (req, res, next) => {
 // Route handler for creating an act of kindness
 router.post('/acts-of-kindness', (req, res) => {
     // Extract the necessary data from the request body
-    const { title, category, description, image, tags } = req.body;
+    const { title, category, description, image, tags, testData } = req.body;
 
     // Create a new act of kindness using the Mongoose model
     const newActOfKindness = new ActOfKindness({
@@ -21,7 +21,8 @@ router.post('/acts-of-kindness', (req, res) => {
         category,
         description,
         image,
-        tags
+        tags,
+        testData: testData || false // Set testData to true if provided, otherwise set it to false
     });
 
     // Save the new act of kindness to the database
@@ -34,6 +35,7 @@ router.post('/acts-of-kindness', (req, res) => {
             res.status(500).json({ error: 'Internal server error' });
         });
 });
+
 
 // Route handler for retrieving all acts of kindness
 router.get('/acts-of-kindness', (req, res) => {

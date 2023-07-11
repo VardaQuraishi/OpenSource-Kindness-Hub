@@ -11,6 +11,12 @@ afterAll(async () => {
   await server.close(); // Close the server using the updated server object
 });
 
+afterEach(async () => {
+  // Clean up the test data by removing the act of kindness documents with testData flag set to true
+  await ActOfKindness.deleteMany({ testData: true });
+});
+
+
 describe('GET /api/acts-of-kindness', () => {
   test('should get all acts of kindness', async () => {
     const response = await request(app).get('/api/acts-of-kindness');
@@ -27,7 +33,8 @@ describe('GET /api/acts-of-kindness/:id', () => {
       category: 'Volunteering',
       description: 'Offering assistance to those in need',
       image: 'https://unsplash.com/photos/dvhWhY337yQ',
-      tags: ['kindness', 'volunteer', 'help']
+      tags: ['kindness', 'volunteer', 'help'],
+      testData: true // Set testData to true for test data
     });
 
     const response = await request(app).get(`/api/acts-of-kindness/${actOfKindness._id}`);
@@ -57,9 +64,10 @@ describe('POST /api/acts-of-kindness', () => {
     const newActOfKindness = {
       title: 'Helping Poor',
       category: 'Volunteering',
-      description: 'Offering assistance to those in need',
+      description: 'Good deeds payoff',
       image: 'https://unsplash.com/photos/dvhWhY337yQ',
-      tags: ['kindness', 'volunteer', 'help']
+      tags: ['kindness', 'poor', 'help'],
+      testData: true // Set testData to true for test data
     };
 
     const response = await request(app)
@@ -72,6 +80,7 @@ describe('POST /api/acts-of-kindness', () => {
   });
 });
 
+
 describe('PUT /api/acts-of-kindness/:id', () => {
   test('should update an act of kindness if the ID exists', async () => {
     // Create a new act of kindness
@@ -80,7 +89,8 @@ describe('PUT /api/acts-of-kindness/:id', () => {
       category: 'Volunteering',
       description: 'Offering assistance to those in need',
       image: 'https://unsplash.com/photos/dvhWhY337yQ',
-      tags: ['kindness', 'volunteer', 'help']
+      tags: ['kindness', 'volunteer', 'help'],
+      testData: true // Set testData to true for test data
     });
 
     // Generate the updated data
@@ -128,7 +138,8 @@ describe('PUT /api/acts-of-kindness/:id', () => {
         category: 'Volunteering',
         description: 'Offering assistance to those in need',
         image: 'https://unsplash.com/photos/dvhWhY337yQ',
-        tags: ['kindness', 'volunteer', 'help']
+        tags: ['kindness', 'volunteer', 'help'],
+        testData: true // Set testData to true for test data
       });
 
       // Make the DELETE request with the newActOfKindness ID
@@ -150,4 +161,3 @@ describe('PUT /api/acts-of-kindness/:id', () => {
   });
 
 });
-

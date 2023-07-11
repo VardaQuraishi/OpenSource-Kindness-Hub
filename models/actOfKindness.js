@@ -29,7 +29,11 @@ const actOfKindnessSchema = new mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  testData: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // Create and export the ActOfKindness model based on the schema
