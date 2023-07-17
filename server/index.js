@@ -1,6 +1,7 @@
 // Import required modules
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = require('cors'); // Import the 'cors' middleware
 const bodyParser = require('body-parser');
 const logger = require('../logger');
 
@@ -31,11 +32,14 @@ mongoose.connect('mongodb://localhost:27017/KindActions', {
 // Middleware to parse JSON data from the request body
 app.use(bodyParser.json());
 
+// Enable CORS for all routes (for development purposes)
+app.use(cors());
+
 // Mount the actsOfKindnessRouter middleware under the '/api' route
 app.use('/api', actsOfKindnessRouter);
 
-// Start the server and listen on port 3000
-const port = 3000;
+// Start the server and listen on port 3001
+const port = 3001;
 const server = app.listen(port, () => {
     logger.info(`Server is running on port ${port}`);
 });
