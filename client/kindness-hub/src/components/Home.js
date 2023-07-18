@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import ActCard from './ActCard';
-import './Home';
+import '../styles/Home.css';
 
 const Home = () => {
   const [actsOfKindness, setActsOfKindness] = useState([]);
 
   useEffect(() => {
     // Fetch all acts of kindness from the server when the component mounts
-    axios.get('/api/acts-of-kindness')
+    fetch('/api/acts-of-kindness')
       .then((response) => {
-        setActsOfKindness(response.data);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setActsOfKindness(data);
       })
       .catch((error) => {
         console.log('Error fetching acts of kindness:', error);
       });
   }, []);
+  
 
   return (
     <div className="home-page">
