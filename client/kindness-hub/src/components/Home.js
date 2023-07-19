@@ -7,7 +7,12 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch all acts of kindness from the server when the component mounts
-    fetch('/api/acts-of-kindness')
+    fetch('/api/acts-of-kindness', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

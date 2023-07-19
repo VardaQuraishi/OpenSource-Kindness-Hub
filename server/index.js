@@ -11,15 +11,18 @@ const actsOfKindnessRouter = require('./routes/actsOfKindness');
 // Create an Express application
 const app = express();
 
-// Enable CORS for all routes (for development purposes)
+// Update the corsOptions object
 const corsOptions = {
-  origin: '*', // Change this to your frontend URL in production for better security
+  origin: 'http://localhost:3000', // Update with your frontend URL
   methods: 'GET, POST, PUT, DELETE',
   allowedHeaders: '*', // Allow all headers
   preflightContinue: false,
   optionsSuccessStatus: 204,
 };
+
+// Use the cors middleware with the updated options
 app.use(cors(corsOptions));
+
 
 // Middleware to log incoming requests
 app.use((req, res, next) => {
