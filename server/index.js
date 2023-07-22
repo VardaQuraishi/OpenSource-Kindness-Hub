@@ -11,14 +11,14 @@ const actsOfKindnessRouter = require('./routes/actsOfKindness');
 // Create an Express application
 const app = express();
 
-// Update the corsOptions object
 const corsOptions = {
-  origin: 'http://localhost:3000', // Update with your frontend URL
+  origin: '*', // Change this to your frontend URL in production for better security
   methods: 'GET, POST, PUT, DELETE',
   allowedHeaders: '*', // Allow all headers
   preflightContinue: false,
-  optionsSuccessStatus: 204,
+  optionsSuccessStatus: 200, // Change the status code to 200 for preflight success
 };
+
 
 // Use the cors middleware with the updated options
 app.use(cors(corsOptions));

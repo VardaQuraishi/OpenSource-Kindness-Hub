@@ -1,13 +1,18 @@
+// App.js
 import React from 'react';
-import './App.css';
-import Home from './components/Home';
+import { BrowserRouter } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Routes from './Routes';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Home /> {/* Render the Home component */}
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navigation />
+        <Routes />
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
