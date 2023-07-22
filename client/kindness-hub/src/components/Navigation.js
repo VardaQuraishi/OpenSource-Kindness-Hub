@@ -1,26 +1,42 @@
-// Navigation.js
+// NavigationBar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../styles/Navbar.css';
 
-const Navigation = () => {
+const NavigationBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/completed-acts">My Completed Acts</Link>
-        </li>
-        <li>
-          <Link to="/generate-random-act">Generate a Random Act</Link>
-        </li>
-        <li>
-          <Link to="/list-of-random-acts">List of Random Acts</Link>
-        </li>
-      </ul>
+    <nav className="navbar">
+      <NavLink
+        exact
+        to="/"
+        className="navbar-link"
+        activeClassName="active-link"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/completed-acts"
+        className="navbar-link"
+        activeClassName="active-link"
+      >
+        Completed Acts
+      </NavLink>
+      <NavLink
+        to="/generate-random-act"
+        className="navbar-link"
+        activeClassName="active-link"
+      >
+        Generate Random Act
+      </NavLink>
+      <NavLink
+        to="/list-of-random-acts"
+        className="navbar-link"
+        activeClassName="active-link"
+      >
+        List of Random Acts
+      </NavLink>
     </nav>
   );
 };
 
-export default Navigation;
+export default NavigationBar;
