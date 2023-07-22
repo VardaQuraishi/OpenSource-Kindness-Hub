@@ -1,15 +1,13 @@
-/* Import the "Playfair Display" font from Google Fonts */
+/* Import the "Playfair Display" and "Lato" fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
-/* Set the font-family for the entire app to "VT323" */
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/* Set the font-family for headings to "Playfair Display" */
+h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-}
-
-/* Set the font-family for specific elements to "Playfair Display" */
-h1,
-h2,
-h3 {
-    font-family: 'VT323', monospace;
-}
+  }
+  
+  /* Set the font-family for the rest of the content to "Lato" */
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+  
