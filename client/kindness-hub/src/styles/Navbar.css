@@ -5,9 +5,9 @@
     background-color: #BFCCB5;
     height: 60px;
     padding: 0 20px;
-  }
-  
-  .navbar-link {
+}
+
+.navbar-link {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -16,16 +16,15 @@
     padding: 8px 12px;
     border-radius: 8px;
     transition: background-color 0.2s, transform 0.2s;
-  }
-  
-  .navbar-link:hover {
-    background-color: #7c96ab29;
+}
+
+.navbar-link:hover {
+    background-color: #7c96ab26;
     transform: scale(1.1);
-  }
-  
-  /* Target the specific navbar-link class when it is active */
-  .navbar-link.active-link {
-    background-color: #EDC6B1;
+}
+
+/* Target the specific navbar-link class when it is active */
+.navbar-link.active-link {
+    background-color: #7c96ab;
     transform: scale(1.1);
-  }
-  
+}
