@@ -2,12 +2,14 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
+import logo from '../images/logo.svg'; // Update the file path if necessary
 
 const Navbar = () => {
   const location = useLocation();
 
   return (
     <nav className="navbar">
+      <img src={logo} alt="Random Acts of Kindness Logo" className="logo" />
       <NavLink
         exact
         to="/"

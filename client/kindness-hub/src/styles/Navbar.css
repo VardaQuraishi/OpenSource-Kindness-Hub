@@ -28,3 +28,10 @@
     background-color: #7c96ab;
     transform: scale(1.1);
 }
+
+.logo {
+    width: 110px; /* Set the width of the logo as per your preference */
+    height: 110px; /* Set the height of the logo as per your preference */
+    margin-right: 10px; /* Add some spacing between the logo and links */
+  }
+  
