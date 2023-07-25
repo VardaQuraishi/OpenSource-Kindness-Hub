@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
 import '../styles/ListOfRandomAct.css';
 
 const ListOfRandomActs = () => {
@@ -99,16 +101,32 @@ const ListOfRandomActs = () => {
         </table>
       </div>
       {/* Pagination */}
-      <div>
-        <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
-          Previous Page
-        </button>
+      <div className="pagination-container">
         <button
+          className="pagination-button"
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          <FaChevronLeft />
+        </button>
+        {Array.from({ length: Math.ceil(searchedActs.length / actsPerPage) }, (_, index) => (
+          <button
+            key={index}
+            className="pagination-button"
+            onClick={() => setCurrentPage(index + 1)}
+            disabled={currentPage === index + 1}
+          >
+            {index + 1}
+          </button>
+        ))}
+        <button
+          className="pagination-button"
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={endIndex >= searchedActs.length}
         >
-          Next Page
+          <FaChevronRight />
         </button>
+
       </div>
     </div>
   );

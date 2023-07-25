@@ -50,8 +50,10 @@
 
 /* Change border color and background color when the search bar is clicked */
 .search-bar:focus {
-    border: 2px solid #7c96ab; /* Change border color when clicked */
-    outline: none; /* Remove the default focus outline */
+    border: 2px solid #7c96ab;
+    /* Change border color when clicked */
+    outline: none;
+    /* Remove the default focus outline */
 
 }
 
@@ -61,3 +63,35 @@
     border-radius: 5px;
     background-color: #f2f2f2;
 }
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    font-size: 18px;
+    border: 1px solid #7c96ab;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.pagination-button:hover {
+    background-color: #7c96ab82;
+    /* Change the hover color */
+    border-radius: 50%;
+    /* Make the button circular on hover */
+    color: #fff;
+    /* Change the text color on hover */
+}
+
