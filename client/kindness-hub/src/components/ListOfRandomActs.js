@@ -56,20 +56,27 @@ const ListOfRandomActs = () => {
 
   return (
     <div>
-      <h1>List of Random Acts</h1>
-      <div>
-        {/* Search Bar */}
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search acts by title or description"
-        />
-        {/* Filter Dropdown */}
-        <select value={selectedFilter} onChange={(e) => setSelectedFilter(e.target.value)}>
-          <option value="all">All</option>
-          {/* Add other filter options here */}
-        </select>
+      <div className="container">
+        <h1>List of Random Acts</h1>
+        <div className="search-row">
+          {/* Search Bar */}
+          <input
+            className="search-bar"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search acts by title or description"
+          />
+          {/* Filter Dropdown */}
+          <select
+            className="filter-dropdown"
+            value={selectedFilter}
+            onChange={(e) => setSelectedFilter(e.target.value)}
+          >
+            <option value="all">All</option>
+            {/* Add other filter options here */}
+          </select>
+        </div>
       </div>
       <div className="acts-table-container">
         <table className="acts-table">

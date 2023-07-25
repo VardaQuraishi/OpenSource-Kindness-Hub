@@ -1,29 +1,63 @@
 /* ListOfRandomActs.css */
 .acts-table-container {
     margin-top: 20px;
-  }
-  
-  .acts-table {
+}
+
+.acts-table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #7c96ab;
     margin: 20px 0;
 
-  }
-  
-  .acts-table th,
-  .acts-table td {
+}
+
+.acts-table th,
+.acts-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-  }
-  
-  .acts-table th {
+}
+
+.acts-table th {
     background-color: #7c96ab86;
     color: #fff;
-  }
-  
-  .acts-table tr:hover {
+}
+
+.acts-table tr:hover {
     background-color: #7c96ab26;
-  }
-  
+}
+
+/* ListOfRandomActs.css */
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    /* Move the search bar to the utmost right */
+
+}
+
+.search-bar {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #7c96ab;
+    border-radius: 5px;
+    margin-right: 10px;
+    min-width: 500px;
+    /* Increase the width of the search bar */
+}
+
+/* Change border color and background color when the search bar is clicked */
+.search-bar:focus {
+    border: 2px solid #7c96ab; /* Change border color when clicked */
+    outline: none; /* Remove the default focus outline */
+
+}
+
+.filter-dropdown {
+    padding: 10px;
+    border: 1px solid #7c96ab;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
