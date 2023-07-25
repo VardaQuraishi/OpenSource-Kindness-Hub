@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/ListOfRandomAct.css';
 
 const ListOfRandomActs = () => {
   const [actsOfKindness, setActsOfKindness] = useState([]);
@@ -50,7 +51,7 @@ const ListOfRandomActs = () => {
     }
     // Perform search based on act title or description, for example
     return act.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-           act.description.toLowerCase().includes(searchQuery.toLowerCase());
+      act.description.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   return (
@@ -70,15 +71,26 @@ const ListOfRandomActs = () => {
           {/* Add other filter options here */}
         </select>
       </div>
-      <ul>
-        {searchedActs.slice(startIndex, endIndex).map((act) => (
-          <li key={act._id}>
-            <h2>{act.title}</h2>
-            <p>Category: {act.category}</p>
-            <p>{act.description}</p>
-          </li>
-        ))}
-      </ul>
+      <div className="acts-table-container">
+        <table className="acts-table">
+          <thead>
+            <tr>
+              <th><h3>Title</h3></th>
+              <th><h3>Category</h3></th>
+              <th><h3>Description</h3></th>
+            </tr>
+          </thead>
+          <tbody>
+            {searchedActs.slice(startIndex, endIndex).map((act) => (
+              <tr key={act._id}>
+                <td>{act.title}</td>
+                <td>{act.category}</td>
+                <td>{act.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {/* Pagination */}
       <div>
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
