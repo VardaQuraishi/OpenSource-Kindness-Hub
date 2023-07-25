@@ -1,4 +1,7 @@
 /* ListOfRandomActs.css */
+.main {
+    margin: 0 20px; /* Add margins on the left and right */
+}
 .acts-table-container {
     margin-top: 20px;
 }
@@ -35,7 +38,6 @@
     margin-bottom: 20px;
     justify-content: space-between;
     /* Move the search bar to the utmost right */
-
 }
 
 .search-bar {

@@ -57,7 +57,7 @@ const ListOfRandomActs = () => {
   });
 
   return (
-    <div>
+    <div className="main">
       <div className="container">
         <h1>List of Random Acts</h1>
         <div className="search-row">
