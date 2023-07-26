@@ -1,0 +1,54 @@
+/* Modal.css */
+
+.modal-container {
+    /* Style the modal container to cover the whole screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure the modal appears on top of other elements */
+  }
+  
+  .modal-content {
+    /* Style the modal content box */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect for a 3D look */
+    position: relative;
+  }
+  
+  .modal-close-button {
+    /* Style the close button at the top right corner */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .lets-do-it-button {
+    /* Style the "Let's Do It" button */
+    background-color: #bfccb5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .lets-do-it-button:hover {
+    /* Add attractive hover effect */
+    background-color: #7c96ab;
+  }
+  

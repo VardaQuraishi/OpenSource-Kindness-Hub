@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Modal from './Modal'; // Import the Modal component
 
 import '../styles/ListOfRandomAct.css';
 
@@ -8,6 +9,7 @@ const ListOfRandomActs = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedAct, setSelectedAct] = useState(null); // State to track the selected act for the modal
 
   useEffect(() => {
     // Fetch all acts of kindness from the server when the component mounts
@@ -56,6 +58,16 @@ const ListOfRandomActs = () => {
       act.description.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
+  // Function to open the modal and set the selected act
+  const handleRowClick = (act) => {
+    setSelectedAct(act);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setSelectedAct(null);
+  };
+
   return (
     <div className="main">
       <div className="container">
@@ -91,7 +103,7 @@ const ListOfRandomActs = () => {
           </thead>
           <tbody>
             {searchedActs.slice(startIndex, endIndex).map((act) => (
-              <tr key={act._id}>
+              <tr key={act._id} onClick={() => handleRowClick(act)}> {/* Add onClick event to each row */}
                 <td>{act.title}</td>
                 <td>{act.category}</td>
                 <td>{act.description}</td>
@@ -128,6 +140,9 @@ const ListOfRandomActs = () => {
         </button>
 
       </div>
+      {selectedAct && (
+        <Modal act={selectedAct} onClose={closeModal} />
+      )}
     </div>
   );
 };

@@ -9,10 +9,12 @@
 .acts-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #7c96ab;
-    margin: 20px 0;
-
-}
+    border: none; /* Remove the border here */
+  
+    /* Add rounded edges and elevation */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
 
 .acts-table th,
 .acts-table td {
@@ -96,4 +98,8 @@
     color: #fff;
     /* Change the text color on hover */
 }
+
+h1 {
+    color: #bfccb5; /* Change the color of the heading */
+  }
 
