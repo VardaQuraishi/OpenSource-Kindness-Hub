@@ -1,54 +1,96 @@
 /* Modal.css */
 
 .modal-container {
-    /* Style the modal container to cover the whole screen */
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure the modal appears on top of other elements */
-  }
-  
-  .modal-content {
-    /* Style the modal content box */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Add a semi-transparent background */
+    z-index: 999;
+}
+
+.modal-content {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect for a 3D look */
-    position: relative;
-  }
-  
-  .modal-close-button {
-    /* Style the close button at the top right corner */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+    /* Add vertical scrollbar if content exceeds the height */
+}
+
+/* Hide scrollbar for webkit-based browsers (Chrome, Safari, etc.) */
+.modal-content::-webkit-scrollbar {
+    width: 0.5em;
+    /* Set the width of the scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: #bfccb567;
+    /* Set the color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Add some border-radius to make it look more appealing */
+}
+
+.modal-close-button {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     background-color: transparent;
     border: none;
+    font-size: 24px;
     cursor: pointer;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .lets-do-it-button {
-    /* Style the "Let's Do It" button */
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    /* Adjust the maximum height of the image as needed */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 8px;
+}
+
+.lets-do-it-button {
     background-color: #bfccb5;
     color: #fff;
-    border: none;
     padding: 10px 20px;
-    font-size: 18px;
+    border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-  }
-  
-  .lets-do-it-button:hover {
-    /* Add attractive hover effect */
-    background-color: #7c96ab;
-  }
-  
+    /* Add vertical margin */
+    width: 100%;
+    /* Make the button full-width */
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #7c96ab82;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 14px;
+}
